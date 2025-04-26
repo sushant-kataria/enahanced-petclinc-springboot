@@ -11,7 +11,7 @@ pipeline {
         ACR_NAME          = "jenkinsazure"
         ACR_LOGIN_SERVER  = "${ACR_NAME}.azurecr.io"
         FULL_IMAGE_NAME   = "${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_TAG}"
-        TENANT_ID         = "ec78375d-0db0-42cf-82a6-2e6403e95936"
+        TENANT_ID         = "00e8e886-b2e8-4523-aaed-17427d9086f1"
         RESOURCE_GROUP    = "Jenkins"
         AKS_CLUSTER       = "springboot"
         K8S_NAMESPACE     = "default"
@@ -54,9 +54,9 @@ pipeline {
                 withSonarQubeEnv('sonarserver') {
                     sh '''
                         $SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.organization=bkrrajmali \
+                        -Dsonar.organization=sushant-kataria \
                         -Dsonar.projectName=SpringBootPet \
-                        -Dsonar.projectKey=bkrrajmali_springbootpet \
+                        -Dsonar.projectKey=sushant-kataria_springbootpet \
                         -Dsonar.java.binaries=. \
                         -Dsonar.exclusions=**/trivy-fs-output.txt
                     '''
