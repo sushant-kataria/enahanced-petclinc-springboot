@@ -26,12 +26,15 @@ pipeline {
         }
 
         stage('Maven Compile') {
+    
+            environment {
+                MAVEN_OPTS = '-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=86400'
+            }
             steps {
-                echo "This is Maven Compile Stage"
-                sh 'mvn compile'
+                echo 'This is Maven Compile Stage'
+                sh 'mvn -B -ntp clean compile'
             }
         }
-
         stage('Maven Test') {
             steps {
                 echo "This is Maven Test Stage"
