@@ -31,6 +31,7 @@ pipeline {
                 sh 'mvn -B -ntp clean compile'
             }
         }
+        
         stage('Maven Test') {
             steps {
                 echo "This is Maven Test Stage"
