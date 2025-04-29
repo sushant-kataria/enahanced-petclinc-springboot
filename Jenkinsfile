@@ -29,7 +29,10 @@ pipeline {
         stage('Maven Compile') {
             steps {
                 echo 'This is Maven Compile Stage'
-                sh 'mvn -B clean compile'
+                sh '''
+                    export MAVEN_OPTS="-Xmx512m"
+                    mvn -B clean compile
+                '''
             }
         }
         
