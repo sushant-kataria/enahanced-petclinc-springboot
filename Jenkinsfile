@@ -29,7 +29,7 @@ pipeline {
         stage('Maven Compile') {
             steps {
                 echo 'This is Maven Compile Stage'
-                sh 'mvn compile'
+                sh 'mvn -B clean compile'
             }
         }
         
